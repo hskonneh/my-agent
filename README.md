@@ -32,8 +32,34 @@ Here's a brief overview of the main files and their purposes in this project:
 *   `tsconfig.json`: TypeScript configuration file, specifying compiler options for the project.
 *   `photos/`: A directory containing screenshots or other image assets.
 
+## 1.3 Folder Structure
+
+```
+my-agent/
+├── bun.lock
+├── commit_index.ts
+├── commit.ts
+├── index.ts
+├── package.json
+├── prompt.ts
+├── README.md
+├── tools.ts
+├── tsconfig.json
+└── photos/
+    ├── Screenshot 2025-09-17 074206.png
+    └── Screenshot 2025-09-17 100754.png
+```
+
+*   `.env`: Environment variables for local development.
+*   `.git/`: Git version control directory.
+*   `.gitignore`: Specifies intentionally untracked files to ignore.
+*   `node_modules/`: Directory containing installed Node.js/Bun dependencies.
+*   `photos/`: Contains screenshots and other image assets used in documentation or for demonstration.
+
 ## 2. Table of Contents
 *   [1. Project Overview](#1-project-overview)
+*   [1.2 Codebase Overview](#12-codebase-overview)
+*   [1.3 Folder Structure](#13-folder-structure)
 *   [2. Table of Contents](#2-table-of-contents)
 *   [3. Installation](#3-installation)
 *   [4. Usage](#4-usage)
