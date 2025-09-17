@@ -1,14 +1,13 @@
 import { stepCountIs, streamText } from "ai";
 import { google } from "@ai-sdk/google";
-import { SYSTEM_PROMPT } from "./prompt";
 import { getFileChangesInDirectoryTool } from "./tools";
 import { SYSTEM_COMMIT } from "./commit";
 
-const codeReviewAgent = async (prompt: string) => {
+const codeCommitAgent = async (prompt: string) => {
   const result = streamText({
     model: google("models/gemini-2.5-flash"),
     prompt,
-    system: SYSTEM_PROMPT || SYSTEM_COMMIT,
+    system: SYSTEM_COMMIT,
     tools: {
       getFileChangesInDirectoryTool: getFileChangesInDirectoryTool,
     },
@@ -21,6 +20,6 @@ const codeReviewAgent = async (prompt: string) => {
 };
 
 // Specify which directory the code review agent should review changes in your prompt
-await codeReviewAgent(
-  "Review the code changes in '../my-agent' directory, make your reviews and suggestions file by file and add a commit message at the end.",
+await codeCommitAgent(
+  "Scan the whole project  and Review the code changes in '../my-agent' directory, make a professional commit message for the changes in the project.",
 );
