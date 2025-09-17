@@ -17,6 +17,21 @@ name: my-agent
 *   Context-aware decision making.
 *   Extensible architecture for new capabilities.
 
+## 1.2 Codebase Overview
+
+Here's a brief overview of the main files and their purposes in this project:
+
+*   `bun.lock`: Bun's lockfile, which records the exact versions of dependencies used in the project to ensure consistent installations.
+*   `commit_index.ts`: This file appears to be an entry point for a code commit agent. It uses the `@ai-sdk/google` library to stream text, leveraging a `SYSTEM_COMMIT` prompt and a `getFileChangesInDirectoryTool` to generate professional commit messages based on code changes in a specified directory.
+*   `commit.ts`: Defines the `SYSTEM_COMMIT` constant, which provides the system prompt for the commit-message generation agent. This prompt instructs the AI to act as a commit-message generator, using the Conventional Commits format to describe changes in a repository snapshot.
+*   `index.ts`: This is the main entry point for the code review agent. It utilizes the `@ai-sdk/google` library to stream text, employing either `SYSTEM_PROMPT` or `SYSTEM_COMMIT` and the `getFileChangesInDirectoryTool` to review code changes and provide suggestions, ultimately generating a commit message.
+*   `package.json`: Contains project metadata (name, version, description) and lists project dependencies and scripts.
+*   `prompt.ts`: Defines the `SYSTEM_PROMPT` constant, which serves as the system prompt for the code review agent. This prompt outlines the agent's personality, review focus areas (correctness, clarity, maintainability, etc.), and guidelines for responding with constructive feedback.
+*   `README.md`: This file, providing a comprehensive overview and documentation for the project.
+*   `tools.ts`: Contains the `getFileChangesInDirectoryTool`, which is a custom AI tool. This tool uses `simple-git` to interact with a Git repository, calculating and returning the `diff` (code changes) for files within a specified directory, excluding certain files like `dist` and `bun.lock`.
+*   `tsconfig.json`: TypeScript configuration file, specifying compiler options for the project.
+*   `photos/`: A directory containing screenshots or other image assets.
+
 ## 2. Table of Contents
 *   [1. Project Overview](#1-project-overview)
 *   [2. Table of Contents](#2-table-of-contents)
